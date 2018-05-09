@@ -20,10 +20,9 @@
   with_items: '{{ apt_repos }}'
   register: apt_repos_task
 
-- name: Update cache
+- name: Force update cache
   apt:
     update_cache: yes
-  when: apt_keys_task.changed or apt_repos_task.changed
 
 - name: Install APT packages
   apt:
